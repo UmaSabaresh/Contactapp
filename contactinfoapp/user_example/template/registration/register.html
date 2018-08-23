@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+</head>
+<body bgcolor="pink">
+	<div align="center">
+	<form method="post" action="{% url 'register' %}">
+		{% csrf_token %}
+    <font size="6" color="blue"><h1>Online Storage Contact Information</h1> </font>
+       <h1> <font color="blue">  Registration Page </font></h1>
+		
+        
+        	<table border="blue" frame="center" align="center"  bgcolor="pink">{{form}}
+
+        	</table>
+
+        {% if form.errors %}
+		<p><font color="red" size="5"> There are errors in the form ! </font></p>
+		{% endif %}
+         	 	
+		<input type="submit" value="Register"><br>
+		<p>already sign in?<a href="{% url 'login' %}" > Login</p></a>
+
+
+	</form>
+</div>
+
+</body>
+</html>

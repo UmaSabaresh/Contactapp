@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body bgcolor="pink">
+     
+ <div align="center">
+ <form method="post" action="{% url 'login' %}">
+ 	{% csrf_token %}
+ 	
+ 	<font size="6" color="blue"><h1>Online Storage Contact Information</h1> </font>
+ 	<br>
+    <h1><font color="blue"> Login  Page </font></h1>
+ 	<p>Username : {{ form.username }} </p>
+ 	<p>Password : {{ form.password }} </p>
+
+ 	{% if form.errors %}
+     <p><font color="red" size="4"> There's something wrong with what you entered </font></p>
+     {% endif %}
+
+     {% if next %}
+     <p> Hey,you can't access that page.</p>
+     {% endif %}
+
+
+    <input type="submit"  value="login">
+ 	<input type="hidden" name="next" value="{{ next }}"><br>
+ 	<p>Not signed in?<a href="{% url 'register' %}" > Signin</p></a>
+
+ </form>
+</div>
+</body>
+</html>
